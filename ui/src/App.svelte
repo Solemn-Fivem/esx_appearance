@@ -1,50 +1,78 @@
 <script>
-  let visible = false; // Controlla la visibilità della UI
+  let name = "";
+  let lastname = "";
+  let age = "";
+  let height = "";
+  let nationality = "";
 
-  // Listener per i messaggi inviati da FiveM
+  window.onload = () => {
+    fetch(`https://${GetParentResourceName()}/ready`, {
+      method: 'POST',
+    });
+  };
+
+  let isVisible = false;
+
   window.addEventListener('message', (event) => {
-    console.log('Messaggio ricevuto:', event.data);
-
-    // Controlla l'azione ricevuta
-    if (event.data.action === 'openUI') {
-      visible = true; // Mostra la UI
-    } else if (event.data.action === 'closeUI') {
-      visible = false; // Nascondi la UI
+    console.log(event.data.action)
+    if (event.data.action === 'openIdentity') {
+      isVisible = true; // Mostra l'interfaccia
     }
   });
 
-  // Funzione per chiudere la UI e inviare la callback a FiveM
-  const closeUI = () => {
-    // Invio della callback a FiveM
-    fetch('https://first-nui/closeUI', { // Sostituisci "resource_name" con il nome della tua risorsa
-      method: 'POST',
+  function submit() {
+    fetch(`https://${GetParentResourceName()}/submitIdentity`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, lastname, age, height, nationality }),
+    }).then(() => {
+      window.postMessage({ action: "closeIdentity" });
     });
-
-    visible = false; // Nascondi la UI localmente
-  };
+  }
 </script>
 
-<!-- Mostra la UI solo se visible è true -->
-{#if visible}
-<main>
-  <h1>Benvenuto nella UI!</h1>
-  <button on:click={closeUI}>
-    Chiudi
-  </button>
+{#if isVisible}
+<main class="flex items-center justify-center min-h-screen bg-gray-800 text-white">
+  <div class="bg-gray-900 p-6 rounded-lg shadow-lg w-96">
+    <h1 class="text-2xl font-bold mb-4 text-center">Creazione Personaggio</h1>
+    <form class="space-y-4" on:submit|preventDefault={submit}>
+      <input
+        type="text"
+        class="w-full p-2 rounded bg-gray-700 text-white"
+        placeholder="Nome"
+        bind:value={name}
+      />
+      <input
+        type="text"
+        class="w-full p-2 rounded bg-gray-700 text-white"
+        placeholder="Cognome"
+        bind:value={lastname}
+      />
+      <input
+        type="number"
+        class="w-full p-2 rounded bg-gray-700 text-white"
+        placeholder="Età"
+        bind:value={age}
+      />
+      <input
+        type="number"
+        class="w-full p-2 rounded bg-gray-700 text-white"
+        placeholder="Altezza"
+        bind:value={height}
+      />
+      <input
+        type="text"
+        class="w-full p-2 rounded bg-gray-700 text-white"
+        placeholder="Nazionalità"
+        bind:value={nationality}
+      />
+      <button
+        type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded"
+      >
+        Conferma
+      </button>
+    </form>
+  </div>
 </main>
 {/if}
-
-<style>
-  main {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 2rem;
-    background-color: #222;
-    color: #fff;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-</style>

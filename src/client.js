@@ -1,12 +1,14 @@
 import * as Cfx from 'fivem-js';
 
-RegisterCommand('openui', () => {
-    SetNuiFocus(true, true); // Abilita il focus per la NUI
-    SendNuiMessage(JSON.stringify({ action: 'openUI' })); // Invia un messaggio alla UI (opzionale)
-}, false);
+RegisterNuiCallbackType('ready');
+on('__cfx_nui:ready', (data, cb) => {
+    console.log('NUI is ready!');
 
-RegisterNuiCallbackType('closeUI');
-on('__cfx_nui:closeUI', () => {
-    SetNuiFocus(false, false); // Disabilita il focus
-    console.log('UI chiusa');
+    emitNet('identity:ready');
+});
+
+onNet('identity:openNUI', () => {
+    console.log("Mostrando l'interfaccia.");
+    SetNuiFocus(true, true); // Abilita la NUI
+    SendNuiMessage(JSON.stringify({ action: 'openIdentity' }));
 });
