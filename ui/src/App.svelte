@@ -1,41 +1,34 @@
 <script>
-  let name = "";
-  let lastname = "";
-  let age = "";
-  let height = "";
-  let nationality = "";
+  let name = $state("");
+  let lastname = $state("");
+  let age = $state("");
+  let height = $state("");
+  let nationality = $state("");
 
-  window.onload = () => {
-    fetch(`https://${GetParentResourceName()}/ready`, {
-      method: 'POST',
-    });
-  };
-
-  let isVisible = false;
+  let isVisible = $state(true);
 
   window.addEventListener('message', (event) => {
-    console.log(event.data.action)
     if (event.data.action === 'openIdentity') {
       isVisible = true; // Mostra l'interfaccia
     }
   });
 
-  function submit() {
-    fetch(`https://${GetParentResourceName()}/submitIdentity`, {
+  async function submit() {
+    await fetch(`https://${GetParentResourceName()}/submitIdentity`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, lastname, age, height, nationality }),
-    }).then(() => {
-      window.postMessage({ action: "closeIdentity" });
     });
+
+    isVisible = false;
   }
 </script>
 
 {#if isVisible}
-<main class="flex items-center justify-center min-h-screen bg-gray-800 text-white">
+<main class="flex items-center justify-center h-screen w-screen text-white" style="background-image: url('/images/identity/bg.webp')">
   <div class="bg-gray-900 p-6 rounded-lg shadow-lg w-96">
     <h1 class="text-2xl font-bold mb-4 text-center">Creazione Personaggio</h1>
-    <form class="space-y-4" on:submit|preventDefault={submit}>
+    <form class="space-y-4" onsubmit={submit}>
       <input
         type="text"
         class="w-full p-2 rounded bg-gray-700 text-white"
@@ -76,3 +69,6 @@
   </div>
 </main>
 {/if}
+
+<style>
+</style>

@@ -9,4 +9,9 @@ export default defineConfig({
         emptyOutDir: true,
     },
     base: './', // Percorsi relativi per FiveM
+    css: {
+        preprocessorOptions: {
+            postcss: true,
+        },
+    },
 });
