@@ -1,24 +1,34 @@
 <script>
-  let visible = false; // Variabile per gestire la visibilità dell'app
+  let visible = false; // Controlla la visibilità della UI
 
-  // Aggiungi un listener per il messaggio globale
+  // Listener per i messaggi inviati da FiveM
   window.addEventListener('message', (event) => {
     console.log('Messaggio ricevuto:', event.data);
 
-    // Verifica l'azione del messaggio
+    // Controlla l'azione ricevuta
     if (event.data.action === 'openUI') {
-      visible = true; // Mostra l'app
+      visible = true; // Mostra la UI
     } else if (event.data.action === 'closeUI') {
-      visible = false; // Nascondi l'app
+      visible = false; // Nascondi la UI
     }
   });
+
+  // Funzione per chiudere la UI e inviare la callback a FiveM
+  const closeUI = () => {
+    // Invio della callback a FiveM
+    fetch('https://first-nui/closeUI', { // Sostituisci "resource_name" con il nome della tua risorsa
+      method: 'POST',
+    });
+
+    visible = false; // Nascondi la UI localmente
+  };
 </script>
 
-<!-- Mostra l'app solo se visible è true -->
+<!-- Mostra la UI solo se visible è true -->
 {#if visible}
 <main>
   <h1>Benvenuto nella UI!</h1>
-  <button on:click={() => (visible = false)}>
+  <button on:click={closeUI}>
     Chiudi
   </button>
 </main>
