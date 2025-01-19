@@ -1,3 +1,5 @@
+import * as Cfx from 'fivem-js';
+
 RegisterCommand('openui', () => {
     SetNuiFocus(true, true); // Abilita il focus per la NUI
     SendNuiMessage(JSON.stringify({ action: 'openUI' })); // Invia un messaggio alla UI (opzionale)

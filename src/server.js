@@ -1,3 +1,13 @@
-import * as Cfx from 'fivem-js';
+const mongodb = global.exports["mongodb"];
 
-console.log('Server script avviato.');
+console.log("first-nui startatoo!!")
+
+mongodb.insertOne({
+    collection: "users",
+    document: {
+        name: "marioloide",
+        lastname: "santino"
+    }
+}, (success, insertedCount, insertedIds) => {
+    console.log(success, insertedCount, insertedIds)
+})
