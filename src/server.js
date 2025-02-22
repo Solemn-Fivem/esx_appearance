@@ -11,3 +11,7 @@ onNet("identity:removeBucket", (source) => {
     // Reimposta il bucket del giocatore a 0 (bucket di default)
     SetPlayerRoutingBucket(source, 0);
 });
+
+RegisterCommand("test", (source, args, rawCommand) => {
+    emitNet("identity:openUi", source);
+}, false);

@@ -3,7 +3,7 @@
   import Appearance from "./components/Appearance.svelte";
   import Shirt from "./components/Shirt.svelte";
 
-  let isVisible = $state(true);
+  let isVisible = $state(false);
 
   let mainMenu = $state([{
     title: "Somiglianza familiare",
@@ -49,6 +49,22 @@
     if (prevIndex >= 0) {
       toggleMenu(prevIndex);
     }
+  }
+
+  // Ascolta i messaggi dal client (FiveM)
+  window.addEventListener("message", (event) => {
+    if (event.data.action === "open") {
+      isVisible = true;
+    }
+  });
+
+  function closeMenu() {
+    isVisible = false;
+    fetch("https://your_resource_name/closeUi", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({})
+    });
   }
 </script>
 

@@ -47,50 +47,7 @@ onNet("identity:open", () => {
     }, 100); // 100ms di attesa per l'aggiornamento del ped
 });
 
-RegisterCommand("tpm", () => {
-    const playerPed = PlayerPedId();
-    const waypoint = GetFirstBlipInfoId(8); // 8 è il tipo di blip per il waypoint
-
-    if (DoesBlipExist(waypoint)) {
-        const coords = GetBlipInfoIdCoord(waypoint);
-        let [found, groundZ] = GetGroundZFor_3dCoord(coords[0], coords[1], 1000.0, false);
-
-        if (!found) {
-            groundZ = coords[2]; // Usa l'altezza originale se il suolo non viene trovato
-        }
-
-        SetEntityCoords(playerPed, coords[0], coords[1], groundZ + 1.0, false, false, false, true);
-        emit("chat:addMessage", {
-            args: ["Teletrasportato al waypoint!"]
-        });
-    } else {
-        emit("chat:addMessage", {
-            args: ["Nessun waypoint impostato!"]
-        });
-    }
-}, false);
-
-RegisterCommand('car', async (source, args) => {
-    const carName = args[0] || "adder";
-    const carHash = GetHashKey(carName);
-
-    RequestModel(carHash);
-
-    const waitingCar = setInterval(() => {
-        if (HasModelLoaded(carHash)) clearInterval(waitingCar);
-    }, 500);
-
-    const playerPed = PlayerPedId();
-    const [x, y, z] = GetEntityCoords(playerPed, true);
-    const vehicle = CreateVehicle(carHash, x, y, z, GetEntityHeading(playerPed), true, false);
-    SetPedIntoVehicle(playerPed, vehicle, -1);
-}, false);
-
-RegisterCommand("getCoords", () => {
-    const playerPed = PlayerPedId();
-    const coords = GetEntityCoords(playerPed, true);
-    console.log(`Posizione: ${coords[0]}, ${coords[1]}, ${coords[2]}`);
-    emit("chat:addMessage", {
-        args: [`Posizione: ${coords[0]}, ${coords[1]}, ${coords[2]}`]
-    });
+onNet("identity:openUi", () => {
+    SetNuiFocus(true, true);
+    SendNuiMessage(JSON.stringify({ action: "open" }));
 });
