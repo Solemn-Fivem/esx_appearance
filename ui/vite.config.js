@@ -5,7 +5,7 @@ export default defineConfig({
     plugins: [svelte()],
     build: {
         outDir: 'dist', // Directory di output
-        assetsDir: 'assets', // Cartella degli asset
+        assetsDir: 'assets', // Directory di assets
         emptyOutDir: true,
     },
     base: './',
