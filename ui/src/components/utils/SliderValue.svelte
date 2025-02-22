@@ -206,7 +206,7 @@
   
     .range__track {
       height: 6px;
-      background-image: url("./images/icons/track.svg");
+      background-image: url("../images/icons/track.svg");
       border-radius: 999px;
     }
   
