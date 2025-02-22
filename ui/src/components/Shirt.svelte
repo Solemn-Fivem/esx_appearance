@@ -66,7 +66,7 @@
 
 <!-- Character Appearance -->
 <div class="flex items-center gap-x-2">
-    <img src="./images/icons/shirt-orange.svg" alt="head orange">
+    <img src="/images/icons/shirt-orange.svg" alt="head orange">
     <h2 class="text-white text-sm font-medium uppercase tracking-[2px]">{title}</h2>
 </div>
 
@@ -84,12 +84,12 @@
         {#if item.active}
             <button class="shadow-[0px_4px_0px_0px_rgba(3,54,46,0.25)] w-fit h-fit rounded-[18px] overflow-hidden p-[1px] bg-gradient-to-b from-[#A2FFE2] to-[#096457]">
             <div class="rounded-[17px] bg-gradient-to-b from-[#35C091] to-[#0B796C] w-[58px] h-[58px] flex items-center justify-center">
-                <img src="./images/icons/tshirt.svg" alt="{item.name}">
+                <img src="/images/icons/tshirt.svg" alt="{item.name}">
             </div>
             </button>
         {:else}
             <button onclick={() => toggleShirt(i)} class="bg-gradient-to-b from-white/0 to-white/15 w-[62px] h-[62px] rounded-[18px] flex items-center justify-center border border-white/15 hover:border-white/50 transition-all">
-            <img src="./images/icons/tshirt.svg" alt="{item.name}" class="opacity-50">
+            <img src="/images/icons/tshirt.svg" alt="{item.name}" class="opacity-50">
             </button>
         {/if}
     {/each}
@@ -103,12 +103,12 @@
         {#if item.active}
             <button class="shadow-[0px_4px_0px_0px_rgba(3,54,46,0.25)] w-fit h-fit rounded-[18px] overflow-hidden p-[1px] bg-gradient-to-b from-[#A2FFE2] to-[#096457]">
             <div class="rounded-[17px] bg-gradient-to-b from-[#35C091] to-[#0B796C] w-[58px] h-[58px] flex items-center justify-center">
-                <img src="./images/icons/pant.svg" alt="{item.name}">
+                <img src="/images/icons/pant.svg" alt="{item.name}">
             </div>
             </button>
         {:else}
             <button onclick={() => togglePant(i)} class="bg-gradient-to-b from-white/0 to-white/15 w-[62px] h-[62px] rounded-[18px] flex items-center justify-center border border-white/15 hover:border-white/50 transition-all">
-            <img src="./images/icons/pant.svg" alt="{item.name}" class="opacity-50">
+            <img src="/images/icons/pant.svg" alt="{item.name}" class="opacity-50">
             </button>
         {/if}
     {/each}
@@ -122,12 +122,12 @@
         {#if item.active}
             <button class="shadow-[0px_4px_0px_0px_rgba(3,54,46,0.25)] w-fit h-fit rounded-[18px] overflow-hidden p-[1px] bg-gradient-to-b from-[#A2FFE2] to-[#096457]">
             <div class="rounded-[17px] bg-gradient-to-b from-[#35C091] to-[#0B796C] w-[58px] h-[58px] flex items-center justify-center">
-                <img src="./images/icons/shoe.svg" alt="{item.name}">
+                <img src="/images/icons/shoe.svg" alt="{item.name}">
             </div>
             </button>
         {:else}
             <button onclick={() => toggleShoe(i)} class="bg-gradient-to-b from-white/0 to-white/15 w-[62px] h-[62px] rounded-[18px] flex items-center justify-center border border-white/15 hover:border-white/50 transition-all">
-            <img src="./images/icons/shoe.svg" alt="{item.name}" class="opacity-50">
+            <img src="/images/icons/shoe.svg" alt="{item.name}" class="opacity-50">
             </button>
         {/if}
     {/each}

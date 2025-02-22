@@ -160,7 +160,7 @@ function toggleColor(index) {
 
 <!-- Character Appearance -->
 <div class="flex items-center gap-x-2">
-    <img src="./images/icons/head-orange.svg" alt="head orange">
+    <img src="/images/icons/head-orange.svg" alt="head orange">
     <h2 class="text-white text-sm font-medium uppercase tracking-[2px]">{title}</h2>
 </div>
 
@@ -178,12 +178,12 @@ function toggleColor(index) {
         {#if item.active}
             <button class="shadow-[0px_4px_0px_0px_rgba(3,54,46,0.25)] w-fit h-fit rounded-[18px] overflow-hidden p-[1px] bg-gradient-to-b from-[#A2FFE2] to-[#096457]">
             <div class="rounded-[17px] bg-gradient-to-b from-[#35C091] to-[#0B796C] w-[58px] h-[58px] flex items-center justify-center">
-                <img src="./images/icons/hair.svg" alt="{item.name}">
+                <img src="/images/icons/hair.svg" alt="{item.name}">
             </div>
             </button>
         {:else}
             <button onclick={() => toggleHair(i)} class="bg-gradient-to-b from-white/0 to-white/15 w-[62px] h-[62px] rounded-[18px] flex items-center justify-center border border-white/15 hover:border-white/50 transition-all">
-            <img src="./images/icons/hair.svg" alt="{item.name}" class="opacity-50">
+            <img src="/images/icons/hair.svg" alt="{item.name}" class="opacity-50">
             </button>
         {/if}
     {/each}
@@ -197,12 +197,12 @@ function toggleColor(index) {
         {#if item.active}
             <button class="shadow-[0px_4px_0px_0px_rgba(3,54,46,0.25)] w-fit h-fit rounded-[18px] overflow-hidden p-[1px] bg-gradient-to-b from-[#A2FFE2] to-[#096457]">
             <div class="rounded-[17px] bg-gradient-to-b from-[#35C091] to-[#0B796C] w-[58px] h-[58px] flex items-center justify-center">
-                <img src="./images/icons/eyebrow.svg" alt="{item.name}">
+                <img src="/images/icons/eyebrow.svg" alt="{item.name}">
             </div>
             </button>
         {:else}
             <button onclick={() => toggleEyebrow(i)} class="bg-gradient-to-b from-white/0 to-white/15 w-[62px] h-[62px] rounded-[18px] flex items-center justify-center border border-white/15 hover:border-white/50 transition-all">
-            <img src="./images/icons/eyebrow.svg" alt="{item.name}" class="opacity-50">
+            <img src="/images/icons/eyebrow.svg" alt="{item.name}" class="opacity-50">
             </button>
         {/if}
     {/each}
@@ -216,12 +216,12 @@ function toggleColor(index) {
         {#if item.active}
             <button class="shadow-[0px_4px_0px_0px_rgba(3,54,46,0.25)] w-fit h-fit rounded-[18px] overflow-hidden p-[1px] bg-gradient-to-b from-[#A2FFE2] to-[#096457]">
             <div class="rounded-[17px] bg-gradient-to-b from-[#35C091] to-[#0B796C] w-[58px] h-[58px] flex items-center justify-center">
-                <img src="./images/icons/beard.svg" alt="{item.name}">
+                <img src="/images/icons/beard.svg" alt="{item.name}">
             </div>
             </button>
         {:else}
             <button onclick={() => toggleBeard(i)} class="bg-gradient-to-b from-white/0 to-white/15 w-[62px] h-[62px] rounded-[18px] flex items-center justify-center border border-white/15 hover:border-white/50 transition-all">
-            <img src="./images/icons/beard.svg" alt="{item.name}" class="opacity-50">
+            <img src="/images/icons/beard.svg" alt="{item.name}" class="opacity-50">
             </button>
         {/if}
     {/each}
@@ -234,7 +234,7 @@ function toggleColor(index) {
     {#each colors as item, i}
         <button onclick={() => toggleColor(i)} class="flex items-center justify-center w-[42px] h-[42px] rounded-xl" style="background-color: {item.code}">
             {#if item.active}
-                <img src="./images/icons/check.svg" alt="check">
+                <img src="/images/icons/check.svg" alt="check">
             {/if}
         </button>
     {/each}

@@ -8,7 +8,7 @@ export default defineConfig({
         assetsDir: 'assets', // Cartella degli asset
         emptyOutDir: true,
     },
-    base: './', // Percorsi relativi per FiveM
+    base: './',
     css: {
         preprocessorOptions: {
             postcss: true,

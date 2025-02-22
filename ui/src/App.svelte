@@ -7,23 +7,23 @@
 
   let mainMenu = $state([{
     title: "Somiglianza familiare",
-    icon: "./images/icons/family.svg",
-    iconActive: "./images/icons/family-active.svg",
+    icon: "/images/icons/family.svg",
+    iconActive: "/images/icons/family-active.svg",
     active: true,
   }, {
     title: "Capelli e barba",
-    icon: "./images/icons/head.svg",
-    iconActive: "./images/icons/head-active.svg",
+    icon: "/images/icons/head.svg",
+    iconActive: "/images/icons/head-active.svg",
     active: false,
   }, {
     title: "Tratti del viso",
-    icon: "./images/icons/body.svg",
-    iconActive: "./images/icons/body-active.svg",
+    icon: "/images/icons/body.svg",
+    iconActive: "/images/icons/body-active.svg",
     active: false,
   }, {
     title: "Stile e abbigliamento",
-    icon: "./images/icons/shirt.svg",
-    iconActive: "./images/icons/shirt-active.svg",
+    icon: "/images/icons/shirt.svg",
+    iconActive: "/images/icons/shirt-active.svg",
     active: false,
   }]);
 
@@ -70,9 +70,9 @@
 
 {#if isVisible}
 <main class="h-screen w-screen" style="background: radial-gradient(circle, #3D8D6E, #143137);">
-  <div class="w-full h-full" style="background-image: url(./images/bg.png); background-size: cover;">
+  <div class="w-full h-full" style="background-image: url(/images/bg.png); background-size: cover;">
   <!-- Immagine personaggio che andrà sostituita col pg -->
-  <img src="./images/character.png" alt="character" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto h-5/6" />
+  <img src="/images/character.png" alt="character" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto h-5/6" />
 
   <!-- Contenuto Editor Destra -->
   <div class="max-h-[calc(100vh-64px)] overflow-auto border border-white/10 bg-black/10 backdrop-blur-md p-7 rounded-[20px] h-fit min-w-[398px] absolute top-1/2 right-[149px] -translate-y-1/2">
@@ -94,7 +94,7 @@
       {#if !mainMenu[0].active}
       <!-- Previous Button -->
       <button onclick={prevMenu} class="px-4 hover:scale-105 border border-white/15 hover:border-white/50 bg-gradient-to-b from-white/0 to-white/15 backdrop-blur-sm hover:backdrop-blur-md transition-all rounded-2xl">
-        <img src="./images/icons/arrow-left-2.svg" alt="shuffle" />
+        <img src="/images/icons/arrow-left-2.svg" alt="shuffle" />
       </button>
       {/if}
 
@@ -130,13 +130,13 @@
 <!-- Start button -->
 <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-x-6">
   <button class="hover:scale-105 border border-white/15 hover:border-white/50 bg-gradient-to-b from-white/0 to-white/15 backdrop-blur-sm hover:backdrop-blur-md transition-all flex gap-x-4 uppercase py-[22px] px-[52px] rounded-2xl text-white font-semibold text-lg">
-    <img src="./images/icons/shuffle.svg" alt="shuffle" />
+    <img src="/images/icons/shuffle.svg" alt="shuffle" />
     Random
   </button>
   
   <button class="p-[1px] bg-gradient-to-b from-[#FFE5CC] to-[#D45F3B] rounded-2xl hover:scale-105 transition-all">
     <div class="flex gap-x-4 uppercase py-[22px] px-[52px] bg-gradient-to-b from-[#FFBA68] to-[#FD7B5E] transition-all rounded-2xl text-[#292D32] font-semibold text-lg">
-      <img src="./images/icons/play.svg" alt="play" />
+      <img src="/images/icons/play.svg" alt="play" />
       <span>
         Start game
       </span>
