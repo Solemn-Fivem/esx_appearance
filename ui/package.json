@@ -15,7 +15,6 @@
     "@sveltejs/vite-plugin-svelte": "^5.0.3"
   },
   "devDependencies": {
-    "@esbuild/linux-x64": "^0.24.2",
     "@sveltejs/adapter-auto": "^4.0.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.1",

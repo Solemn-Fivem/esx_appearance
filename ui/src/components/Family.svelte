@@ -6,12 +6,14 @@
 
   let fatherIndex = $state(0);
   let motherIndex = $state(0);
+
+  let { title } = $props();
 </script>
 
 <!-- Character Appearance -->
 <div class="flex items-center gap-x-2">
   <img src="/images/icons/family-orange.svg" alt="head orange">
-    <h2 class="text-white text-sm font-medium uppercase tracking-[2px]">Lineamenti</h2>
+    <h2 class="text-white text-sm font-medium uppercase tracking-[2px]">{title}</h2>
 </div>
 
 <!-- Divider -->
