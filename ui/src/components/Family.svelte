@@ -12,7 +12,7 @@
 
 <!-- Character Appearance -->
 <div class="flex items-center gap-x-2">
-  <img src="/images/icons/family-orange.svg" alt="head orange">
+  <img src="./images/icons/family-orange.svg" alt="head orange">
     <h2 class="text-white text-sm font-medium uppercase tracking-[2px]">{title}</h2>
 </div>
 
@@ -34,13 +34,13 @@
   <div class="flex gap-x-2">
     <button onclick={() => fatherIndex > 0 ? fatherIndex-- : null } class:opacity-50={fatherIndex == 0} class="bg-gradient-to-b from-[#A2FFE2] to-[#096457] rounded-lg p-[1px]">
       <div class="bg-gradient-to-b from-[#35C091] to-[#0B796C] rounded-lg w-[33px] h-[33px] flex items-center justify-center">
-        <img src="/images/icons/arrow-left.svg" alt="arrow-left">
+        <img src="./images/icons/arrow-left.svg" alt="arrow-left">
       </div>
     </button>
 
     <button onclick={() => fatherIndex < (fathers.length -1) ? fatherIndex++ : null } class:opacity-50={fatherIndex == (fathers.length -1)} class="bg-gradient-to-b from-[#A2FFE2] to-[#096457] rounded-lg p-[1px]">
       <div class="bg-gradient-to-b from-[#35C091] to-[#0B796C] rounded-lg w-[33px] h-[33px] flex items-center justify-center">
-        <img src="/images/icons/arrow-right.svg" alt="arrow-right">
+        <img src="./images/icons/arrow-right.svg" alt="arrow-right">
       </div>
     </button>
   </div>
@@ -55,13 +55,13 @@
   <div class="flex gap-x-2">
     <button onclick={() => motherIndex > 0 ? motherIndex-- : null } class:opacity-50={motherIndex == 0}  class="bg-gradient-to-b from-[#A2FFE2] to-[#096457] rounded-lg p-[1px]">
       <div class="bg-gradient-to-b from-[#35C091] to-[#0B796C] rounded-lg w-[33px] h-[33px] flex items-center justify-center">
-        <img src="/images/icons/arrow-left.svg" alt="arrow-left">
+        <img src="./images/icons/arrow-left.svg" alt="arrow-left">
       </div>
     </button>
 
     <button onclick={() => motherIndex < (mothers.length -1) ? motherIndex++ : null } class:opacity-50={motherIndex == (mothers.length -1)} class="bg-gradient-to-b from-[#A2FFE2] to-[#096457] rounded-lg p-[1px]">
       <div class="bg-gradient-to-b from-[#35C091] to-[#0B796C] rounded-lg w-[33px] h-[33px] flex items-center justify-center">
-        <img src="/images/icons/arrow-right.svg" alt="arrow-right">
+        <img src="./images/icons/arrow-right.svg" alt="arrow-right">
       </div>
     </button>
   </div>
